@@ -54,7 +54,7 @@ Func<object, Task> setResponseHeaders = state =>
     const string cacheHeader = "public,max-age=604800";
     
     var headers = ((HttpContext)state).Response.Headers;
-    headers.Add("X-Clacks-Overhead", "GNU Terry Pratchett");
+    headers.Append("X-Clacks-Overhead", "GNU Terry Pratchett");
     headers.CacheControl = cacheHeader;
     headers.Vary = "Accept-Encoding";
     return Task.CompletedTask;

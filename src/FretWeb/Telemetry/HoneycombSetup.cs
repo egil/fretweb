@@ -24,11 +24,6 @@ public static class HoneycombSetup
             builder.Logging.AddOpenTelemetry(options =>
             {
                 options.SetResourceBuilder(resourceBuilder);
-                options.AddOtlpExporter(o =>
-                {
-                    o.Endpoint = new Uri("https://api.honeycomb.io");
-                    o.Headers = $"x-honeycomb-team={honeycombOptions.ApiKey}";
-                });
             });
 
             builder.Services.AddOpenTelemetry()
